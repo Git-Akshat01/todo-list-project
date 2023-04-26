@@ -26,22 +26,16 @@ export function LoginComponent() {
     }
 
     function handleSubmit() {
-        if(username === 'in28minutes' && password === 'dummy')
-        {
-            authContext.setAuthenticated(true)
-            //console.log('Success')
+        if(authContext.login(username, password))
+        {   
             setShowSuccessMessage(true)
             setShowErrorMessage(false)
             navigate(`/welcome/${username}`)
-            
         }
         else
         {
-            authContext.setAuthenticated(false)
-            console.log('Failed')
             setShowSuccessMessage(false)
-            setShowErrorMessage(true)
-            
+            setShowErrorMessage(true)            
         }
     }
 

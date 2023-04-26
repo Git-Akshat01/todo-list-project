@@ -10,7 +10,7 @@ export function HeaderComponent() {
     //console.log(authContext)
 
     function logout () {
-        authContext.setAuthenticated(false)
+        authContext.logout()
     }
 
 
@@ -20,7 +20,7 @@ export function HeaderComponent() {
         <div className="container">
             <div className="row">
                 <nav className="navbar navbar-expand-lg">
-                    <a className="navbar-brand ms-2 fs-2 fw-bold text-black" href="https://www.in28minutes.com">in28minutes</a>
+                    <a className="navbar-brand ms-2 fs-2 fw-bold text-black" href="https://sites.google.com/view/akshattiwari/home">Akshat Tiwari</a>
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav">
                             <li className="nav-item">
