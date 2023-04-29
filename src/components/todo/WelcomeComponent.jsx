@@ -1,10 +1,28 @@
 import { useParams, Link } from 'react-router-dom'
+import { useState } from 'react'
+import { retrieveHelloWorldBean, retrievehelloWorldPathVariable } from './api/HelloWorldApiService'
 
 export function WelcomeComponent() {
+    
     const {username} = useParams()
+
+    const [message, setMessage] = useState(null)
 
     function callHelloWorldRestApi() {
         console.log('called')
+        retrievehelloWorldPathVariable("ranga")
+        .then( (response) => successfulResponse(response) )
+        .catch( (error) => errorResponse(error) )
+        .finally( () => console.log('cleanup') )
+    }
+
+    function successfulResponse (response) {
+        console.log(response)
+        setMessage(response.data.message)
+    }
+
+    function errorResponse (error) {
+        console.log(error)
     }
 
     return (
@@ -20,6 +38,8 @@ export function WelcomeComponent() {
                     Call Hello World
                 </button>
             </div>
+
+            <div className="text-info">{message}</div>
 
         </div>
         
